@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Copyright (C) 2021 #
+# @Time    : 2022/4/15 13:50
+# @File    : first-one.py
+# @Software: PyCharm
+
+from tkinter import Tk, Label, Button, messagebox
+
+
+class First_Gui(Tk):
+
+    def __init__(self):
+        super(First_Gui, self).__init__()
+        self.geometry('300x300')
+        self.title('Python-Gui')
+        self.resizable(False, False)
+
+    @staticmethod
+    def __message():
+        from time import strftime
+        return messagebox.showinfo(title='Hello', message=f'Hello，person!\n\nNow-Date:{strftime("%Y-%m-%d")}')
+
+    def __label_tk(self):
+        return Label(self, text='Hello,world!').pack()
+
+    def __button_tk(self):
+        return Button(self, text='clicked', bg='skyblue', command=self.__message).pack()
+
+    def run(self):
+        self.__label_tk()
+        self.__button_tk()
+        self.mainloop()
+
+
+if __name__ == '__main__':
+    First_Gui().run()
